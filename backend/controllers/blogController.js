@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler";
 import Blog from "../models/blog.js";
-
+import sanitizeHtml from 'sanitize-html'
 
 
 export const getBlogs = asyncHandler( async(req, res) => {
@@ -31,6 +31,14 @@ export const getBlogs = asyncHandler( async(req, res) => {
     if(!title || !content) {
         res.status(400).json({ msg: "title and content are required"});
     }
+
+    content = sanitizeHtml(content, {
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "h1", "h2", "p", "span", "b", "ul", "li"]),
+        allowedAttributes: {
+            ...sanitizeHtml.defaults.allowedAttributes,
+            img:["src", "alt", "width", "height"],
+        },
+    })
     const blog = await Blog.create({ title, content, category, image, author: req.user._id});
     res.status(200).json(blog);
  });

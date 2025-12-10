@@ -10,4 +10,8 @@ router.get('/user/:userId', getBlogsByUser);
 router.get('/category/:category', getBlogs);
 router.get('/id/:id', getBlogById);
 router.delete('/id/:id', verify, deleteBlog );
-export default router;
+export default router;                     
+
+
+
+
