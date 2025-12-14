@@ -17,7 +17,7 @@ const blogSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      enum: ["web", "ai", "nature", "other"],
+      enum: ["web","react", "ai", "nature", "other"],
       default: "other",
     },
     author: {

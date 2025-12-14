@@ -15,7 +15,7 @@ const register = asyncHandler( async (req, res) => {
     
     const user = await User.create({fullname, email, password: hashedPassword, role});
     const token = generatetoken(user);
-    res.cookie('token', token, { httpOnly: true});
+    res.cookie('token', token, { httpOnly: true, secure: false, sameSite: "lax"});
 
     res.status(200).json({
        

@@ -27,7 +27,10 @@ export const getBlogs = asyncHandler( async(req, res) => {
 
 
  export const postBlog = asyncHandler( async( req, res) => {
-    const { title, content, category, image=''} = req.body;
+    let { title, content, category, image=''} = req.body;
+    if(!category) {
+        category = 'other'
+    }
     if(!title || !content) {
         res.status(400).json({ msg: "title and content are required"});
     }
