@@ -6,13 +6,16 @@ import { Link, useNavigate } from "react-router-dom";
 const RegisterPage = () => {
   const dispatch = useDispatch();
   const [form, setForm] = useState({ fullname: "", email: "", password: "" });
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-        await dispatch(registerUser(form)).unwrap();
-       navigate("/login");
+      await dispatch(registerUser(form)).unwrap();
+      navigate("/login");
     } catch (err) {
       console.log("register error", err);
     }
@@ -56,11 +59,22 @@ const RegisterPage = () => {
           className="w-full outline-none border-b m-2.5 text-sm"
           required
         />
-        <button type="submit" className="bg-white min-w-full text-black p-1 rounded-xs m-2.5 cursor-pointer text-md">
-          Register
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-white min-w-full text-black p-1 rounded-xs m-2.5 cursor-pointer text-md"
+        >
+          {loading ? (
+            <span className="h-4 w-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
+          ) : (
+            "Register"
+          )}
         </button>
         <p className="text-[1rem] sm:text-sm">
-          Already have an account? <Link to="/login" className="underline text-blue-400">login</Link>
+          Already have an account?{" "}
+          <Link to="/login" className="underline text-blue-400">
+            login
+          </Link>
         </p>
       </form>
     </div>

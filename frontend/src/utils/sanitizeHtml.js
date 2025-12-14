@@ -1,8 +1,10 @@
 import DomPurify from 'dompurify';
 
-export default sanitizeHTML = (html) => {
+const  sanitizeHTML = (html) => {
     if(!html) {
         return "";
     }
     return DomPurify.sanitize(html);
 };
+
+export default sanitizeHTML;
