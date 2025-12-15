@@ -18,7 +18,7 @@ const BlogCard = ({ blog }) => {
         <p>
           {snippet}
         </p>
-        <Link to={`/blogs/${blog._id}`}>Read more...</Link>
+        <Link to={`/blogs/${blog._id}`} className="text-blue-700">Read more...</Link>
       </div>
     </div>
   );

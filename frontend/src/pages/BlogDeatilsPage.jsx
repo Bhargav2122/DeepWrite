@@ -28,17 +28,35 @@ const BlogDeatilsPage = () => {
    }
 
   return (
-    <div>
-        <h1>{blog.title}</h1>
-        <p>By:{blog.author?.name || blog.author?.fullname || "Unknown"}</p>
-        <div dangerouslySetInnerHTML={{ __html: sanitizeHTML(blog.content)}} />
-            {canDelete && (
-                <div>
-                    <button onClick={handleDelete}>Delete</button>
-                </div>
-            )}
+<div className="min-h-screen bg-linear-to-b from-[#1f2233] to-[#191b2a] px-4 py-10">
+  <div className="mx-auto max-w-3xl bg-[#262640] rounded-xl shadow-xl p-6 md:p-8">
+    
+    <h1 className="text-2xl text-center md:text-3xl font-bold text-slate-100 mb-2">
+      {blog.title}
+    </h1>
 
-    </div>
+    <p className="text-sm text-slate-400 mb-6 text-center">
+      By {blog.author?.name || blog.author?.fullname || "Unknown"}
+    </p>
+
+    <div
+      className="prose text-amber-50 prose-invert max-w-none prose-p:text-slate-200 prose-headings:text-slate-100 prose-a:text-indigo-400"
+      dangerouslySetInnerHTML={{ __html: sanitizeHTML(blog.content) }}
+    />
+
+    {canDelete && (
+      <div className="mt-8 flex justify-end">
+        <button
+          onClick={handleDelete}
+          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition"
+        >
+          Delete
+        </button>
+      </div>
+    )}
+  </div>
+</div>
+
   )
 }
 

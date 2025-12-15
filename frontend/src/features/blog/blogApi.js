@@ -17,6 +17,7 @@ export const createBlog = async(data) => {
 
 export const fetchBlogsByUser = async(userId, params= {}) => {
     const res = await api.get(`/blog/user/${userId}`, {params});
+    console.log(res.data)
     return res.data;
 }
 export const deleteBlog = async(id) => {
