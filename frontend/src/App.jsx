@@ -7,6 +7,8 @@ import BlogDeatilsPage from "./pages/BlogDeatilsPage";
 import CreateBlogPage from "./pages/CreateBlogPage";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import MyBlogsPage from "./pages/MyBlogsPage";
+import CreateComment from "./pages/CreateComment";
+import GetComments from "./pages/GetComments";
 
 
 
@@ -23,6 +25,8 @@ function App() {
             <Route path="/blogs/:id" element={<ProtectedRoute><BlogDeatilsPage /></ProtectedRoute>} />
             <Route path="/create" element={<ProtectedRoute><CreateBlogPage /></ProtectedRoute>} />
             <Route path="/my" element={<ProtectedRoute><MyBlogsPage /></ProtectedRoute>} />
+            <Route path="/comment/create" element={<ProtectedRoute><CreateComment /></ProtectedRoute>} />
+            <Route path="/comment/getComments" element={<ProtectedRoute><GetComments /></ProtectedRoute>} />
           </Routes>
         </main>
       </Router>

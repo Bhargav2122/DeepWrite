@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link, useParams } from 'react-router-dom'
 import {getBlog, removeBlog } from '../features/blog/blogSlice'
 import  sanitizeHTML   from '../utils/sanitizeHtml'
+import CreateComment from './CreateComment';
+import GetComments from './GetComments';
 
 
 const BlogDeatilsPage = () => {
@@ -53,8 +55,12 @@ const BlogDeatilsPage = () => {
           Delete
         </button>
       </div>
-    )}
+    )} 
+     <hr className='my-6'/>
+      <GetComments />
   </div>
+      <CreateComment />
+  
 </div>
 
   )
