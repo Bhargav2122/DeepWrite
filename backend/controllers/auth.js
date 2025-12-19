@@ -15,7 +15,7 @@ const register = asyncHandler( async (req, res) => {
     
     const user = await User.create({fullname, email, password: hashedPassword, role});
     const token = generatetoken(user);
-    res.cookie('token', token, { httpOnly: true, secure: false, sameSite: "lax"});
+    res.cookie('token', token, { httpOnly: true, secure: true, sameSite: "none"});
 
     res.status(200).json({
        
@@ -39,7 +39,7 @@ const login = asyncHandler(async(req, res) => {
       return res.status(400).json({msg: "incorrect password"});
     }
      const token = generatetoken(user);
-    res.cookie('token', token, { httpOnly: true});
+    res.cookie('token', token, { httpOnly: true, secure:true, sameSite:"none"});
 
     res.status(200).json({
         
