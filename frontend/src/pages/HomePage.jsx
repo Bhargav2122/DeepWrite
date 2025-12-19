@@ -35,15 +35,22 @@ const HomePage = () => {
    <CategoryBar selectedCategory={selectedCategory}
          onSelectCategory={handleCategory}
    />
-  {loading ? <p>loading...</p> :(
+  {loading ? ( <p>loading...</p> ):(
+    <>
+     {blogs.length === 0 ? (
+      <p className="text-gray-300 text-center mt-10">
+        No blogs found
+      </p>
+     ): (
     <>
          <div>
-         {blogs.map((b)=> <BlogCard key={b._id} blog={b}/>)}
-    </div>
-    <Pagination page={page} totalPages={pages} OnPage={setCurrentPage} />
+           {blogs.map((b)=> <BlogCard key={b._id} blog={b}/>)}
+        </div>
+      <Pagination page={page} totalPages={pages} OnPage={setCurrentPage} />
     </>
-
-  ) }
+   )}
+  </>
+  )}
     
 </section>
 

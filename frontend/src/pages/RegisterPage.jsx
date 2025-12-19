@@ -50,7 +50,7 @@ const RegisterPage = () => {
           className="w-full outline-none border-b m-2.5 text-sm"
           required
         />
-        <input
+          <input
           type="password"
           name="password"
           onChange={handleChange}
@@ -65,7 +65,7 @@ const RegisterPage = () => {
           className="bg-white min-w-full text-black p-1 rounded-xs m-2.5 cursor-pointer text-md"
         >
           {loading ? (
-            <span className="h-4 w-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
+             <span>loading....</span>
           ) : (
             "Register"
           )}

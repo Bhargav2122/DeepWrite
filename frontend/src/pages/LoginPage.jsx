@@ -7,15 +7,20 @@ import { loginUser } from '../features/auth/authSlice';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const [error, setError] = useState(null);
+  const[loading, setLoading] = useState(false);
   const [form, setForm] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
+    setLoading(true);
     try {
         await dispatch(loginUser(form)).unwrap();
        navigate("/");
     } catch (err) {
+      setError(err?.message || "Invalid email or password")
       console.log("login error", err);
     }
   };
@@ -48,9 +53,9 @@ const LoginPage = () => {
           value={form.password}
           className="w-full outline-none border-b m-2.5 text-sm"
           required
-        />
+        /> {error && ( <p className='text-red-500 text-sm mb-2 text-center'>{error}</p> )}
         <button type="submit" className="bg-white min-w-full text-black p-1 rounded-xs m-2.5 cursor-pointer text-md">
-         login
+         {loading? "loading...." : "Login"}
         </button>
         <p className="text-[1rem] sm:text-sm">
          Don't have an account? <Link to="/register" className="underline text-blue-400">register</Link>
