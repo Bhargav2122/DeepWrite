@@ -36,6 +36,7 @@ This is a full-stack MERN blog application implementing authentication,authoriza
 
 ### ScreenShots
 - login page
+
 ![loginpage](screenshots/login.png)
 
 - homepage
