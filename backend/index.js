@@ -17,7 +17,7 @@ app.use(compression());
 app.use(cookieParser())
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://deep-write.vercel.app/',
     credentials: true
 }));
 
