@@ -35,10 +35,24 @@ This is a full-stack MERN blog application implementing authentication,authoriza
 ## Demo of Blog App
 
 ### ScreenShots
+-login page
 ![loginpage](screenshots/login.png)
+
+-homepage
 ![homepage](screenshots/home.png)
+
+-BlogDetails Page
+
 ![blogdetailspage](screenshots/BlogDetails.png)
+
+-All Blogs Page (category)
+
 ![allblogs](screenshots/AllBlogs.png)
+
+-MyBlogs Page
+
 ![myblogs](screenshots/myblogs.png)
+
+-CreateBlog Page
 ![createBlog](screenshots/createBlog.png)
 
