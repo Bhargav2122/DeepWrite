@@ -29,24 +29,24 @@ const Navbar = () => {
         {user ? (
           <>
             <Link
+              to="/"
+              className="font-gothic text-base md:text-lg lg:text-[1.02rem] hover-underline"
+            >
+              Home
+            </Link>
+
+            <Link
               to="/create"
               className="font-gothic text-base md:text-lg lg:text-[1.02rem] hover-underline"
             >
-              Create
+             Create
             </Link>
 
             <Link
               to="/my"
               className="font-gothic text-base md:text-lg lg:text-[1.02rem] hover-underline"
             >
-              MyBlogs
-            </Link>
-
-            <Link
-              to="/"
-              className="font-gothic text-base md:text-lg lg:text-[1.02rem] hover-underline"
-            >
-              Home
+              Myblogs
             </Link>
 
             <button
@@ -65,12 +65,6 @@ const Navbar = () => {
               Login
             </Link>
 
-            <Link
-              to="/register"
-              className="font-gothic text-base md:text-lg lg:text-xl hover-underline"
-            >
-              Register
-            </Link>
           </>
         )}
       </div>
